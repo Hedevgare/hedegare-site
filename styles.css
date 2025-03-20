@@ -53,13 +53,11 @@ footer {
 }
 
 .column {
-    /* flex: 1; */
     flex-direction: column;
 }
 
 .flex {
     display: flex;
-    /* flex-direction: column; */
 }
 
 .flex-center {
@@ -74,6 +72,14 @@ footer {
 
 .flex-center-vertical {
     justify-content: center;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.m-t-auto {
+    margin-top: auto;
 }
 
 .row {
@@ -150,7 +156,7 @@ footer {
     border-radius: 5px;
     background: #34d399;
     padding: 0 5px;
-    margin-right: 5px;
+    margin: 0 5px 5px 0;
 }
 
 .title {
