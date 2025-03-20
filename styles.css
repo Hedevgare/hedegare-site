@@ -1,14 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 body {
     display: flex;
-    height: 100vh;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    background-color: #0b212b;
+    background-color: #020617;
     color: #ffffff;
-    font-family: 'Ubuntu Sans Mono', monospace;
+    font-family: 'Noto Sans Mono', 'Ubuntu Sans Mono', monospace;
+}
+
+section {
+    width: 100%;
+    flex-direction: column;
 }
 
 h1 {
@@ -23,28 +27,39 @@ h1:hover {
 
 a {
     color: #ffffff;
-}
-
-a:hover {
-    text-decoration-thickness: 10%;
+    text-decoration: none;
 }
 
 img {
     max-width: 450px;
 }
 
+footer {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Structure classes */
 .about {
     align-items: center;
 }
 
+.about-buttons {
+    width: 90%;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 75px;
+}
+
 .column {
-    flex: 1;
-    width: 100%;
+    /* flex: 1; */
+    flex-direction: column;
 }
 
 .flex {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 
 .flex-center {
@@ -52,10 +67,97 @@ img {
     align-items: center;
 }
 
+.flex-center-between {
+    justify-content: space-between;
+    align-items: center;
+}
+
 .flex-center-vertical {
     justify-content: center;
 }
 
+.row {
+    flex-direction: row;
+}
+
+/* Elements classes */
+.button {
+    position: relative;
+    display: inline-block;
+    width: calc(100% - 4rem);
+    /* 4rem = 2 * 2rem (body margin) */
+    padding: 5px 30px;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #60a5fa, #34d399);
+    text-align: center;
+    color: white;
+    z-index: 1;
+    transition: transform 0.5s;
+}
+
+.button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.button:first-child {
+    margin-right: 1rem;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    background: #020617;
+    margin: 2px;
+    z-index: -1;
+}
+
+.button:hover::before {
+    background: transparent;
+}
+
+.description {
+    margin-bottom: 4.5rem;
+    text-align: center;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #60a5fa, #34d399);
+    color: transparent;
+    background-clip: text;
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project {
+    width: 100%;
+    border: 1px solid #60a5fa;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.project-title {
+    font-weight: bold;
+}
+
+.project-tag {
+    border-radius: 5px;
+    background: #34d399;
+    padding: 0 5px;
+    margin-right: 5px;
+}
+
+.title {
+    margin-bottom: 0;
+}
+
+/* Media Queries */
 @media screen and (min-width: 375px) {
     body {
         margin: 0 2rem;
@@ -68,18 +170,52 @@ img {
 
 @media screen and (min-width: 425px) {
     h1 {
-        font-size: 2.3em;
+        font-size: 4em;
     }
+
+    .about-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .button {
+        width: 100px;
+    }
+
+    .description {
+        text-align: left;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .project {
+        flex-basis: calc((100% - 24px - 4rem) / 2);
+        /* 40px = 1 gap (20px) + 4 borders (1px) + 4 paddings (1rem) */
+    }
+
 }
 
 @media screen and (min-width: 1000px) {
     body {
+        margin: 0 7.5rem;
+    }
+
+    section {
         flex-direction: row;
-        margin: 0 10rem;
+        height: 100vh;
     }
 
     img {
-        max-width: 650px;
+        max-width: 600px;
+    }
+    
+    .about-buttons {
+        justify-content: start;
+        margin-bottom: 0;
+    }
+
+    .column {
+        width: 100%;
     }
 
     .about {
@@ -87,8 +223,15 @@ img {
     }
 }
 
+@media screen and (min-width: 1200px) {
+    .project {
+        flex-basis: calc((100% - 46px - 6rem) / 3);
+        /* 46px = 2 gaps (20px) + 6 borders (1px) + 6 paddings (1rem) */
+    }
+}
+
 @media screen and (min-width: 1440px) {
     body {
-        margin: 0 20rem;
+        margin: 0 10rem;
     }
 }
