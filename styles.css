@@ -157,12 +157,12 @@ footer {
 }
 
 .project-types {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .project-type {
-    padding: 10px 20px;
-    margin-right: 10px;
+    padding: 10px 15px;
+    margin: 0 10px 5px 0;
     border: 1px solid #60a5fa;
     border-radius: 15px;
     color: #ffffff;
