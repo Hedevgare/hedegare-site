@@ -18,5 +18,15 @@ pipeline {
                 }
             }
         }
+
+        stage("Set Permissions") {
+            steps {
+                withCredentials([sshUserPrivateKey(credentialsId: env.SSH_CRED_ID, keyFileVariable: 'SSH_KEY')]) {
+                    bat """
+                    ssh -i %SSH_KEY% %REMOTE_USER%@%REMOTE_HOST% "sudo chmod 755 %REMOTE_PATH%/images"
+                    """
+                }
+            }
+        }
     }
 }
