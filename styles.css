@@ -189,7 +189,8 @@ footer {
 .project-tag {
     border-radius: 5px;
     background: #34d399;
-    padding: 0 5px;
+    color: #020617;
+    padding: 0 5px 2px 5px;
     margin: 0 5px 5px 0;
 }
 
